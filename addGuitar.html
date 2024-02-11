@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guitar Inventory Management</title>
+  <link rel="stylesheet" href="addGuitar.css">
+</head>
+<body>
+  <div class="container">
+    <div class="navigation">
+      <button onclick="location.href='about.html'">About</button>
+      <button onclick="location.href='addGuitar.html'">Add</button>
+      <button onclick="location.href='searchGuitar.html'">Search</button>
+    </div>
+    
+    <h1 class="form-title">Add Guitar</h1>
+    
+    <form id="addGuitarForm">
+      <input type="text" id="serialNumber" name="serialNumber" placeholder="Serial number">
+      <input type="text" id="price" name="price" placeholder="Price">
+      <input type="text" id="builder" name="builder" placeholder="Builder">
+      <input type="text" id="model" name="model" placeholder="Model">
+      <input type="text" id="type" name="type" placeholder="Type">
+      <input type="text" id="backWood" name="backWood" placeholder="Back wood">
+      <input type="text" id="topWood" name="topWood" placeholder="Top wood">
+      <input type="submit" value="Add the guitar" class="button">
+    </form>
+  </div>
+</body>
+</html>

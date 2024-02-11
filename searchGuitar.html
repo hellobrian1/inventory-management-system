@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guitar Inventory Management</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f3e5ab;
+    margin: 0;
+    padding: 20px;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .header h1 {
+    margin: 0;
+  }
+  .nav {
+    display: flex;
+    gap: 15px;
+  }
+  .nav a {
+    text-decoration: none;
+    color: black;
+    background: #e2d2a2;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .search-form {
+    display: grid;
+    gap: 10px;
+  }
+  .search-form label,
+  .search-form input {
+    display: block;
+    width: 100%;
+    padding: 5px;
+  }
+  input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .search-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #d1c18f;
+    cursor: pointer;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Guitar Inventory Management</h1>
+  <nav class="nav">
+    <a href="about.html">About</a>
+    <a href="addGuitar.html">Add</a>
+    <a href="searchGuitar.html">Search</a>
+  </nav>
+</div>
+<form class="search-form">
+  <label for="builder">Builder:</label>
+  <input type="text" id="builder" name="builder">
+  
+  <label for="model">Model:</label>
+  <input type="text" id="model" name="model">
+  
+  <label for="type">Type:</label>
+  <input type="text" id="type" name="type">
+  
+  <label for="back_wood">Back wood:</label>
+  <input type="text" id="back_wood" name="back_wood">
+  
+  <label for="top_wood">Top wood:</label>
+  <input type="text" id="top_wood" name="top_wood">
+  
+  <button type="submit">Search</button>
+</form>
+<table>
+  <tr>
+    <th>Serial number</th>
+    <th>Builder</th>
+    <th>Model</th>
+    <th>Type</th>
+    <th>Back wood</th>
+    <th>Top wood</th>
+    <th>Price</th>
+  </tr>
+  <!-- Table rows would be dynamically generated here -->
+</table>
+</body>
+</html>
