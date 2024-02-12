@@ -7,7 +7,7 @@
 <style>
   body {
     font-family: Arial, sans-serif;
-    background-color: #f3e5ab;
+    background-color: #fdf6e3;
     margin: 0;
     padding: 20px;
   }
@@ -25,8 +25,8 @@
   }
   .nav a {
     text-decoration: none;
-    color: black;
-    background: #e2d2a2;
+    color: brown;
+    background: #fdf6e3;
     padding: 10px;
     border-radius: 5px;
   }
@@ -44,12 +44,17 @@
     border: 1px solid #ccc;
     border-radius: 5px;
   }
-  .search-form button {
+  .search-link {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     background: #d1c18f;
     cursor: pointer;
+    text-decoration: underline; /* Adding underline */
+    display: inline-block;
+  }
+  .search-link:hover {
+    text-decoration: underline; /* Keep underline on hover */
   }
   table {
     width: 100%;
@@ -88,7 +93,7 @@
   <label for="top_wood">Top wood:</label>
   <input type="text" id="top_wood" name="top_wood">
   
-  <button type="submit">Search</button>
+  <a class="search-link" href="#">Search</a>
 </form>
 <table>
   <tr>
