@@ -4,29 +4,345 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guitar Inventory Management</title>
-  <link rel="stylesheet" href="addGuitar.css">
-  <script src="src/addGuitar.js" defer></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fdf6e3;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      width: 80%;
+      margin: 2em auto;
+      padding: 2em;
+      background-color: #fffff0;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .navigation {
+      text-align: right;
+    }
+
+    .navigation button {
+      background: none;
+      border: none;
+      font-size: 1em;
+      padding: 0.5em 1em;
+      cursor: pointer;
+      color: #8b4513;
+    }
+
+    .navigation button:hover {
+      text-decoration: underline;
+    }
+
+    h1.form-title {
+      color: #8b4513;
+      font-size: 2em;
+      text-align: center;
+      margin-bottom: 0.5em;
+    }
+
+    .form-container {
+      display: none;
+    }
+
+    .form-container.active {
+      display: block;
+    }
+
+    .search-results {
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 8px;
+      border: 1px solid #ddd;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      margin: 0;
+    }
+
+    .nav {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: brown;
+      background: #fdf6e3;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .search-form,
+    #addGuitarForm {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .search-form label,
+    .search-form input,
+    #addGuitarForm label,
+    #addGuitarForm input {
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    .search-form input[type="text"],
+    #addGuitarForm input[type="text"] {
+      font-size: 1em;
+      padding: 0.5em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .search-link,
+    #addGuitarForm input[type="submit"] {
+      font-size: 1em;
+      padding: 0.5em;
+      color: white;
+      background-color: #8b4513;
+      border: none;
+      border-radius: 4px;
+      margin-top: 0.5em;
+      cursor: pointer;
+      width: auto;
+    }
+
+    .search-link:hover,
+    #addGuitarForm input[type="submit"]:hover {
+      background-color: #a0522d;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <div class="navigation">
-      <button onclick="location.href='about.html'">About</button>
-      <button onclick="location.href='addGuitar.html'">Add</button>
-      <button onclick="location.href='searchGuitar.html'">Search</button>
+    <div class="header">
+      <h1>Guitar Inventory Management</h1>
+      <nav class="nav">
+        <a id="aboutBtn">About</a>
+        <a id="addBtn">Add</a>
+        <a id="searchBtn">Search</a>
+      </nav>
+    </div>
+
+    <div id="aboutPage" class="form-container active">
+      <p></p>
+    </div>
+    <div class="container">
+    <div class="header">
+      <h1><a id="homeLink" href="#">Guitar Inventory Management</a></h1>
+      <nav class="nav">
+        <a id="aboutBtn">About</a>
+        <a id="addBtn">Add</a>
+        <a id="searchBtn">Search</a>
+      </nav>
+    </div>
+
+    <div id="aboutPage" class="form-container active">
+      <p>This is the Guitar Inventory Management system.</p>
+    </div>
+
+    <div id="addGuitarPage" class="form-container">
+      <h1 class="form-title">Add Guitar</h1>
+      <form id="addGuitarForm">
+        <!-- Form fields -->
+      </form>
+    </div>
+
+    <div id="searchGuitarPage" class="form-container">
+      <h1 class="form-title">Search Guitar</h1>
+      <form class="search-form">
+        <!-- Form fields -->
+      </form>
+      <div id="searchResults" class="search-results">
+        <table id="searchTable">
+          <!-- Table content -->
+        </table>
+      </div>
     </div>
     
-    <h1 class="form-title">Add Guitar</h1>
-    
-    <form id="addGuitarForm">
-      <input type="text" id="serialNumber" name="serialNumber" placeholder="Serial number">
-      <input type="text" id="price" name="price" placeholder="Price">
-      <input type="text" id="builder" name="builder" placeholder="Builder">
-      <input type="text" id="model" name="model" placeholder="Model">
-      <input type="text" id="type" name="type" placeholder="Type">
-      <input type="text" id="backWood" name="backWood" placeholder="Back wood">
-      <input type="text" id="topWood" name="topWood" placeholder="Top wood">
-      <input type="submit" value="Add the guitar" class="button">
-    </form>
+    <div class="content">
+      <!-- Image content -->
+    </div>
   </div>
+
+    <div id="addGuitarPage" class="form-container">
+      <h1 class="form-title">Add Guitar</h1>
+      <form id="addGuitarForm">
+        <input type="text" id="serialNumber" name="serialNumber" placeholder="Serial number">
+        <input type="text" id="price" name="price" placeholder="Price">
+        <input type="text" id="builder" name="builder" placeholder="Builder">
+        <input type="text" id="model" name="model" placeholder="Model">
+        <input type="text" id="type" name="type" placeholder="Type">
+        <input type="text" id="backWood" name="backWood" placeholder="Back wood">
+        <input type="text" id="topWood" name="topWood" placeholder="Top wood">
+        <input type="submit" value="Add the guitar" class="button">
+      </form>
+    </div>
+
+    <div id="searchGuitarPage" class="form-container">
+      <h1 class="form-title">Search Guitar</h1>
+      <form class="search-form">
+        <label for="builder">Builder:</label>
+        <input type="text" id="builderSearch" name="builder">
+
+        <label for="model">Model:</label>
+        <input type="text" id="modelSearch" name="model">
+
+        <label for="type">Type:</label>
+        <input type="text" id="typeSearch" name="type">
+
+        <label for="back_wood">Back wood:</label>
+        <input type="text" id="backWoodSearch" name="backWood">
+
+        <label for="top_wood">Top wood:</label>
+        <input type="text" id="topWoodSearch" name="topWood">
+
+        <a id="searchLink" class="search-link" href="#">Search</a>
+      </form>
+      <div id="searchResults" class="search-results">
+        <table id="searchTable">
+          <thead>
+            <tr>
+              <th>Serial number</th>
+              <th>Builder</th>
+              <th>Model</th>
+              <th>Type</th>
+              <th>Back wood</th>
+              <th>Top wood</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody id="searchTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const aboutBtn = document.getElementById("aboutBtn");
+      const addBtn = document.getElementById("addBtn");
+      const searchBtn = document.getElementById("searchBtn");
+      const aboutPage = document.getElementById("aboutPage");
+      const addGuitarPage = document.getElementById("addGuitarPage");
+      const searchGuitarPage = document.getElementById("searchGuitarPage");
+
+      aboutBtn.addEventListener("click", function() {
+        toggleFormContainer("aboutPage");
+      });
+
+      addBtn.addEventListener("click", function() {
+        toggleFormContainer("addGuitarPage");
+      });
+
+      searchBtn.addEventListener("click", function() {
+        toggleFormContainer("searchGuitarPage");
+      });
+
+      function toggleFormContainer(activePage) {
+        aboutPage.classList.remove("active");
+        addGuitarPage.classList.remove("active");
+        searchGuitarPage.classList.remove("active");
+
+        document.getElementById(activePage).classList.add("active");
+      }
+
+      const addGuitarForm = document.getElementById("addGuitarForm");
+      const searchLink = document.getElementById("searchLink");
+
+      addGuitarForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const serialNumber = document.getElementById("serialNumber").value;
+        const price = document.getElementById("price").value;
+        const builder = document.getElementById("builder").value;
+        const model = document.getElementById("model").value;
+        const type = document.getElementById("type").value;
+        const backWood = document.getElementById("backWood").value;
+        const topWood = document.getElementById("topWood").value;
+
+        const guitarData = {
+          serialNumber: serialNumber,
+          price: price,
+          builder: builder,
+          model: model,
+          type: type,
+          backWood: backWood,
+          topWood: topWood
+        };
+
+        console.log("Guitar data:", guitarData);
+
+        // Here you can add the guitar data to your storage or perform any other action
+
+        // Display confirmation popup
+        window.alert("Guitar added successfully!");
+
+        addGuitarForm.reset();
+      });
+
+      searchLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        const builder = document.getElementById("builderSearch").value.trim().toLowerCase();
+        const model = document.getElementById("modelSearch").value.trim().toLowerCase();
+        const type = document.getElementById("typeSearch").value.trim().toLowerCase();
+        const backWood = document.getElementById("backWoodSearch").value.trim().toLowerCase();
+        const topWood = document.getElementById("topWoodSearch").value.trim().toLowerCase();
+
+        // Assuming you have a function to filter and display search results
+        const filteredData = filterAndDisplayResults(builder, model, type, backWood, topWood);
+        console.log("Filtered Data:", filteredData);
+      });
+
+      function filterAndDisplayResults(builder, model, type, backWood, topWood) {
+        // Replace this with your actual filtering and displaying logic
+        const searchTableBody = document.getElementById("searchTableBody");
+        searchTableBody.innerHTML = ""; // Clear previous search results
+
+        // Mock search results
+        const searchResults = [
+          { serialNumber: "123", builder: "Fender", model: "Stratocaster", type: "Electric", backWood: "Alder", topWood: "Maple", price: 999 },
+          { serialNumber: "456", builder: "Gibson", model: "Les Paul", type: "Electric", backWood: "Mahogany", topWood: "Maple", price: 1299 },
+          { serialNumber: "789", builder: "Martin", model: "D-28", type: "Acoustic", backWood: "Rosewood", topWood: "Spruce", price: 1499 }
+        ];
+
+        // Display search results
+        searchResults.forEach(function(guitar) {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${guitar.serialNumber}</td>
+            <td>${guitar.builder}</td>
+            <td>${guitar.model}</td>
+            <td>${guitar.type}</td>
+            <td>${guitar.backWood}</td>
+            <td>${guitar.topWood}</td>
+            <td>${guitar.price}</td>
+          `;
+          searchTableBody.appendChild(row);
+        });
+
+        // Return filtered data if needed
+        return searchResults;
+      }
+    });
+  </script>
 </body>
 </html>
