@@ -9,8 +9,48 @@
       font-family: 'Arial', sans-serif;
       background-color: #fdf6e3;
       margin: 0;
-      padding: 20px;
+      padding: 0; 
     }
+    .header {
+      background-color: #f8f1e7;
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+      font-family: Arial, sans-serif; /* Added font-family rule */
+    }
+    .header h1 {
+      margin: 0;
+      color: #000;
+    }
+    .navigation {
+      display: flex;
+      justify-content: right;
+      padding: 10px 0;
+      background-color: #f8f1e7;
+      border-bottom: 1px solid #ccc;
+      font-family: Arial, sans-serif; /* Added font-family rule */
+    }
+    .navigation a {
+      text-decoration: none;
+      color: #000;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    .navigation a:hover {
+      color: #555;
+    }
+    .content {
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  height: 70vh; /* Set a fixed height to contain the image */
+}
+
+.content img {
+  max-width: 100%; /* Limiting the image width to the container */
+  max-height: 100%; /* Limiting the image height to the container */
+  margin: auto; /* Center the image within its container */
+}
 
     .container {
       width: 80%;
@@ -19,37 +59,19 @@
       background-color: #fffff0;
       box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     }
-
-    .navigation {
-      text-align: right;
-    }
-
-    .navigation button {
-      background: none;
-      border: none;
-      font-size: 1em;
-      padding: 0.5em 1em;
-      cursor: pointer;
-      color: #8b4513;
-    }
-
-    .navigation button:hover {
-      text-decoration: underline;
-    }
-
-    h1.form-title {
-      color: #8b4513;
-      font-size: 2em;
-      text-align: center;
-      margin-bottom: 0.5em;
-    }
-
     .form-container {
       display: none;
     }
 
     .form-container.active {
       display: block;
+    }
+
+    .form-title {
+      color: #8b4513;
+      font-size: 2em;
+      text-align: center;
+      margin-bottom: 0.5em;
     }
 
     .search-results {
@@ -144,6 +166,10 @@
     </div>
 
     <div id="aboutPage" class="form-container active">
+      <!-- Include image only in the About page -->
+      <div class="content">
+        <img src="guitarphoto.png" alt="Historical musicians playing">
+      </div>
       <p>This is the Guitar Inventory Management system.</p>
     </div>
 
@@ -198,6 +224,8 @@
         </table>
       </div>
     </div>
+
+
   </div>
 
   <script>
