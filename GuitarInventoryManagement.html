@@ -166,12 +166,18 @@
     #addGuitarForm input[type="submit"]:hover {
       background-color: #a0522d;
     }
+
+    .header a {
+      text-decoration: none;
+      color: brown;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <h1><button id="inventoryBtn" class="invisible-button">Guitar Inventory Management</button></h1>
+      <a href=""><h1>Guitar Inventory Management</h1></a>
+      <!-- <h1><button id="inventoryBtn" class="invisible-button">Guitar Inventory Management</button></h1> -->
       <nav class="nav">
         <a id="aboutBtn">About</a>
         <a id="addBtn">Add</a>
@@ -180,9 +186,9 @@
     </div>
 
     <div id="aboutPage" class="form-container active">
-      <p>This is the Guitar Inventory Management system.</p>
+      <p>hello there</p>
       <!-- Add your image tag below -->
-      <img src="guitarphoto.png" alt="">
+      
     </div>
     
 
@@ -238,22 +244,29 @@
       </div>
     </div>
 
+    <div id="guitarInventoryManagement" class="form-container active">
+      <p></p>
+      <!-- Add your image tag below -->
+      <img src="guitarphoto.png" alt="">
+    </div>
+
     
   </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      const aboutBtn = document.getElementById("aboutBtn");
-      const addBtn = document.getElementById("addBtn");
-      const searchBtn = document.getElementById("searchBtn");
-      const aboutPage = document.getElementById("aboutPage");
-      const addGuitarPage = document.getElementById("addGuitarPage");
-      const searchGuitarPage = document.getElementById("searchGuitarPage");
+    const aboutBtn = document.getElementById("aboutBtn");
+    const addBtn = document.getElementById("addBtn");
+    const searchBtn = document.getElementById("searchBtn");
+    const aboutPage = document.getElementById("aboutPage");
+    const addGuitarPage = document.getElementById("addGuitarPage");
+    const searchGuitarPage = document.getElementById("searchGuitarPage");
+    const guitarInventoryManagement = document.getElementById("guitarInventoryManagement");
 
-      inventoryBtn.addEventListener("click", function() {
-        alert("Button clicked!");
-      });
 
+
+      
+      
       aboutBtn.addEventListener("click", function() {
         toggleFormContainer("aboutPage");
       });
@@ -266,13 +279,19 @@
         toggleFormContainer("searchGuitarPage");
       });
 
-      function toggleFormContainer(activePage) {
-        aboutPage.classList.remove("active");
-        addGuitarPage.classList.remove("active");
-        searchGuitarPage.classList.remove("active");
+      guitarInventoryManagement.addEventListener("click", function() {
+        alert("This is the guitar inventory management page");
+      toggleFormContainer("guitarInventoryManagement");
+    });
 
-        document.getElementById(activePage).classList.add("active");
-      }
+    function toggleFormContainer(activePage) {
+      aboutPage.classList.remove("active");
+      addGuitarPage.classList.remove("active");
+      searchGuitarPage.classList.remove("active");
+      guitarInventoryManagement.classList.remove("active");
+
+      document.getElementById(activePage).classList.add("active");
+    }
 
       const addGuitarForm = document.getElementById("addGuitarForm");
       const searchLink = document.getElementById("searchLink");
