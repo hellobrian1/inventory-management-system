@@ -46,14 +46,15 @@
   height: 70vh; /* Set a fixed height to contain the image */
 }
 
-.content img {
+.form-container img {
   max-width: 100%; /* Limiting the image width to the container */
   max-height: 100%; /* Limiting the image height to the container */
   margin: auto; /* Center the image within its container */
 }
 
+
     .container {
-      width: 80%;
+      width: 60%;
       margin: 2em auto;
       padding: 2em;
       background-color: #fffff0;
@@ -166,12 +167,11 @@
     </div>
 
     <div id="aboutPage" class="form-container active">
-      <!-- Include image only in the About page -->
-      <div class="content">
-        <img src="guitarphoto.png" alt="Historical musicians playing">
-      </div>
       <p>This is the Guitar Inventory Management system.</p>
+      <!-- Add your image tag below -->
+      <img src="guitarphoto.png" alt="">
     </div>
+    
 
     <div id="addGuitarPage" class="form-container">
       <h1 class="form-title">Add Guitar</h1>
@@ -205,7 +205,7 @@
         <label for="top_wood">Top wood:</label>
         <input type="text" id="topWoodSearch" name="topWood">
 
-        <a id="searchLink" class="search-linkw" href="#">Search</a>
+        <a id="searchLink" class="search-link" href="#">Search</a>
       </form>
       <div id="searchResults" class="search-results">
         <table id="searchTable">
