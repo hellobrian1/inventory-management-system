@@ -179,9 +179,9 @@
       <a href=""><h1>Guitar Inventory Management</h1></a>
       <!-- <h1><button id="inventoryBtn" class="invisible-button">Guitar Inventory Management</button></h1> -->
       <nav class="nav">
-        <a id="aboutBtn">About</a>
+        <a href="about.html">About</a>
         <a id="addBtn">Add</a>
-        <a id="searchBtn">Search</a>
+        <a href="searchGuitar.html">Search</a>
       </nav>
     </div>
 
@@ -254,6 +254,7 @@
   </div>
 
   <script>
+    let host = "https://localhost:8080/";
     document.addEventListener("DOMContentLoaded", function() {
     const aboutBtn = document.getElementById("aboutBtn");
     const addBtn = document.getElementById("addBtn");
@@ -263,10 +264,6 @@
     const searchGuitarPage = document.getElementById("searchGuitarPage");
     const guitarInventoryManagement = document.getElementById("guitarInventoryManagement");
 
-
-
-      
-      
       aboutBtn.addEventListener("click", function() {
         toggleFormContainer("aboutPage");
       });
@@ -292,7 +289,6 @@
 
       document.getElementById(activePage).classList.add("active");
     }
-
       const addGuitarForm = document.getElementById("addGuitarForm");
       const searchLink = document.getElementById("searchLink");
 
@@ -305,7 +301,6 @@
         const type = document.getElementById("type").value;
         const backWood = document.getElementById("backWood").value;
         const topWood = document.getElementById("topWood").value;
-
         const guitarData = {
           serialNumber: serialNumber,
           price: price,
@@ -317,6 +312,41 @@
         };
 
         console.log("Guitar data:", guitarData);
+        let request = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(guitarData)
+        };
+        let response = fetch(host + "/inventory", request);
+        if (response.status ===200) {
+          console.log("Guitar added successfully!");
+        } else {
+          console.log("Failed to add guitar");
+        }
+
+        async function submit() {
+          let serialNumber = document.getElementById("serialNumber").value;
+          let price = document.getElementById("price").value;
+          let builder = document.getElementById("builder").value;
+          let model = document.getElementById("model").value;
+          let type = document.getElementById("type").value;
+          let backWood = document.getElementById("backWood").value;
+          let topWood = document.getElementById("topWood").value;
+          
+          let formData = new FormData();
+          //formData.append("serialNumber", serialNumber);
+          let request = {
+            method: "POST",
+            body: formData,
+          };
+          let response = await fetch(host + "/inventory", request);
+          let result = await response.json();
+          console.log("Result:", result);
+          return result;
+        }
+        
 
         // Here you can add the guitar data to your storage or perform any other action
 
@@ -345,11 +375,13 @@
         searchTableBody.innerHTML = ""; // Clear previous search results
 
         // Mock search results
-        const searchResults = [
-          { serialNumber: "123", builder: "Fender", model: "Stratocaster", type: "Electric", backWood: "Alder", topWood: "Maple", price: 999 },
-          { serialNumber: "456", builder: "Gibson", model: "Les Paul", type: "Electric", backWood: "Mahogany", topWood: "Maple", price: 1299 },
-          { serialNumber: "789", builder: "Martin", model: "D-28", type: "Acoustic", backWood: "Rosewood", topWood: "Spruce", price: 1499 }
-        ];
+        const searchResults = [];
+        async function getGuitarData() {
+          let host = "https://localhost:8080/";
+          const response = await fetch(host + "/inventory");
+          const data = await response.json();
+          return data;
+        }
 
         // Display search results
         searchResults.forEach(function(guitar) {
