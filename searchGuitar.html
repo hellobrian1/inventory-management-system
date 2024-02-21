@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guitar Inventory Management - Search</title>
   <link rel="stylesheet" href="searchGuitar.css">
+  <script src="searchGuitar.js"></script>
 </head>
 <body>
   <div class="container">
@@ -21,21 +22,21 @@
       <h1 class="form-title">Search Guitar</h1>
       <form class="search-form">
         <label for="builder">Builder:</label>
-        <input type="text" id="builderSearch" name="builder">
+        <input type="text" id="builder" name="builder">
 
         <label for="model">Model:</label>
-        <input type="text" id="modelSearch" name="model">
+        <input type="text" id="model" name="model">
 
         <label for="type">Type:</label>
-        <input type="text" id="typeSearch" name="type">
+        <input type="text" id="type" name="type">
 
-        <label for="back_wood">Back wood:</label>
-        <input type="text" id="backWoodSearch" name="backWood">
+        <label for="backWood">Back wood:</label>
+        <input type="text" id="backWood" name="backWood">
 
-        <label for="top_wood">Top wood:</label>
-        <input type="text" id="topWoodSearch" name="topWood">
-        <button onclick="searchGuitar()">Search </button>
-    </form>
+        <label for="topWood">Top wood:</label>
+        <input type="text" id="topWood" name="topWood">
+        <button type="button" class="search-button" onclick="searchGuitar()">Search</button>
+      </form>
       <div id="searchResults" class="search-results">
         <table id="searchTable">
           <thead>
@@ -49,12 +50,12 @@
               <th>Price</th>
             </tr>
           </thead>
-          <tbody id="searchTableBody"></tbody>
+          <tbody id="tableBody"></tbody>
         </table>
       </div>
     </div>
   </div>
 
-  <script src="searchGuitar.js"></script>
+  
 </body>
 </html>

@@ -74,45 +74,43 @@ th, td {
     border: 1px solid #ddd;
 }
 
-.search-form,
-#addGuitarForm {
+.search-form{
     display: flex;
     flex-direction: column;
 }
 
 .search-form label,
-.search-form input,
-#addGuitarForm label,
-#addGuitarForm input {
+.search-form input {
     margin-bottom: 10px;
     width: 100%;
 }
 
-.search-form input[type="text"],
-#addGuitarForm input[type="text"] {
+.search-form input[type="text"] {
     font-size: 1em;
     padding: 0.5em;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
-.search-link,
-#addGuitarForm input[type="submit"] {
+
+.search-button {
     font-size: 1em;
     padding: 0.5em;
     color: white;
-    background-color: #8b4513;
+    background-color: brown;
     border: none;
     border-radius: 4px;
-    margin-top: 0.5em;
     cursor: pointer;
     width: auto;
-}
+  }
+  
+  .search-button:hover {
+    background-color: #8b4513;
+  }
+  
 
-.search-link:hover,
-#addGuitarForm input[type="submit"]:hover {
-    background-color: #a0522d;
-}
+
+
 
 .header a {
     text-decoration: none;
